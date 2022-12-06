@@ -5,7 +5,7 @@ export const store = reactive({
     charactersList: [],
     fetchError: false,
     fetchData(){
-        axios.get('https://rickandmortyapi.com/api/character').then(resp => {
+        axios.get('https://swapi.dev/api/people/').then(resp => {
             store.charactersList = resp.data.results;
             store.fetchError = false;
         }).catch(error => {
