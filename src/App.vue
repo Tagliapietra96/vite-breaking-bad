@@ -1,4 +1,8 @@
 <template>
+<transition name="fade">
+  <LoadingBlock v-if="store.fetchError"/>
+</transition>
+
   <div class="bg-primary vh-100">
     <TheHeader/>
     <TheMain/>
@@ -10,9 +14,10 @@
 <script>
 import TheHeader from './components/TheHeader.vue';
 import TheMain from './components/TheMain.vue';
+import LoadingBlock from './components/LoadingBlock.vue';
 import {store} from './stores/store';
 export default {
-  components: {TheHeader, TheMain},
+  components: {TheHeader, TheMain, LoadingBlock},
   data(){
     return{
       store,
