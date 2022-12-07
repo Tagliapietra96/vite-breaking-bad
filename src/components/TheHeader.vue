@@ -2,7 +2,7 @@
     <header class="p-5 mb-4">
         <h1 class="text-white">STAR WARS API</h1>
         <div class="container pt-4">
-            <input name="type" class="form-control form-control-sm w-25 " v-model="search" @change="onChange" />
+            <input name="type" class="form-control form-control-sm w-25 " v-model="search" @change="onChange" placeholder="Insert a name"/>
             <div class="text-center">
                 <button class="btn btn-light" @click="onPrevPage">Prev Page</button>
                 <span class="random-space mx-3 "></span>
