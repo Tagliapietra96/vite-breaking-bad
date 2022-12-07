@@ -3,8 +3,8 @@
   <LoadingBlock v-if="store.fetchError"/>
 </transition>
 
-  <div class="bg-primary vh-100">
-    <TheHeader/>
+  <div v-if="!store.fetchError" class="bg-primary pb-5">
+    <TheHeader @filter="onSelectChange" @page-change="onPageChange" :element-counter="parseInt(store.count)"/>
     <TheMain/>
   </div>
 </template>
@@ -21,6 +21,17 @@ export default {
   data(){
     return{
       store,
+    }
+  },
+  methods:{
+    onSelectChange(filter){
+      this.store.filter = filter;
+      this.store.fetchData();
+    
+    },
+    onPageChange(page){
+      this.store.page = page;
+      this.store.fetchData();
     }
   },
   mounted(){
